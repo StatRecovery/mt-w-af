@@ -12,7 +12,8 @@ builder.ConfigureFunctionsWebApplication();
 builder.Services
     .ConfigureMassTransit()
     .AddDurableClientFactory()
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
+    //.AddApplicationInsightsTelemetryWorkerService()
+    //.ConfigureFunctionsApplicationInsights()
+    ;
 
 builder.Build().Run();

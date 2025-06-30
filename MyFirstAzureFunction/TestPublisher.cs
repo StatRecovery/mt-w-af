@@ -1,27 +1,29 @@
 ﻿using MassTransit;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask.ContextImplementations;
-using Microsoft.Azure.WebJobs.Extensions.DurableTask.Options;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace MyFirstAzureFunction;
 
-public class TestPublisher(ILogger<TestPublisher> logger, IBus bus) : BackgroundService
+public class TestPublisher(ILogger<TestPublisher> logger, IServiceProvider provider) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        while (!stoppingToken.IsCancellationRequested)
-        {
-            logger.LogInformation("Publishing message at: {time}", DateTimeOffset.Now);
-            await bus.Publish(new Welcome(DateTime.Now.ToString("HH:mm:ss zz")), stoppingToken);
-            await Task.Delay(1000, stoppingToken);
-        }
+        using var scope = provider.CreateScope();
+        var client = scope.ServiceProvider.GetRequiredService<IRequestClient<Goodbye>>();
+
+        var response = await client.GetResponse<Goodbye>(new Welcome(Guid.NewGuid().ToString()), stoppingToken);
+        var msg = response.Message;
+
+        logger.LogInformation("Received response for {InstanceId}", msg.InstanceId);
     }
 }
 
-public class WelcomeConsumer3(ILogger<WelcomeConsumer3> logger, IDurableClientFactory clientFactory) : IConsumer<Welcome>
+public class WelcomeConsumer3(ILogger<WelcomeConsumer3> logger, IDurableClientFactory clientFactory)
+    : IConsumer<Welcome>
 {
-    public Task Consume(ConsumeContext<Welcome> context)
+    public async Task Consume(ConsumeContext<Welcome> context)
     {
         var message = context.Message;
 
@@ -30,18 +32,16 @@ public class WelcomeConsumer3(ILogger<WelcomeConsumer3> logger, IDurableClientFa
         //ltaInput);
 
         var durableClient = clientFactory.CreateClient();
-        
-        logger.LogInformation("Consumer 3 received message: {message} at {time}", message, DateTimeOffset.Now);
-        return Task.CompletedTask;
-    }
-}
 
-public class GoodbyeConsumer(ILogger<GoodbyeConsumer> logger) : IConsumer<Goodbye>
-{
-    public Task Consume(ConsumeContext<Goodbye> context)
-    {
-        logger.LogInformation(context.Message.InstanceId);
+        var instanceId = await durableClient.StartNewAsync(
+            nameof(MyFirstOrchestration.TheOrchestration),
+            message
+        );
 
-        return Task.CompletedTask;
+
+        await context.RespondAsync(new Goodbye
+        {
+            InstanceId = instanceId
+        });
     }
 }
