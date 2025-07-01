@@ -1,12 +1,25 @@
 {
-    "version": "2.0",
-    "logging": {
-        "applicationInsights": {
-            "samplingSettings": {
-                "isEnabled": true,
-                "excludedTypes": "Request"
-            },
-            "enableLiveMetricsFilters": true
-        }
+  "extensions": {
+    "durableTask": {
+      "hubName": "MyDurableFunctionsHub" // Ensure this matches TaskHubName in local.settings.json
     }
+  },
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond": 5
+      }
+    },
+    "logLevel": {
+      "default": "Information",
+      "Function": "Information",
+      "Host.Results": "Information",
+      "Host.Aggregator": "Information",
+      "Microsoft.Azure.WebJobs.Extensions.DurableTask": "Information", // Ensure Durable Task logs are visible
+      "DurableTask.Core": "Information", // More detailed Durable Task logs
+      "MyFirstAzureFunction": "Information" // Your application's namespace
+    }
+  },
+  "version": "2.0"
 }
