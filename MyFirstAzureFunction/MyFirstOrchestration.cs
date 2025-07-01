@@ -12,10 +12,33 @@ internal class MyFirstOrchestration
         Welcome welcome)
     {
         var logger = context.CreateReplaySafeLogger(nameof(TheOrchestration));
-        logger.LogInformation($"Orchestration '{context.InstanceId}' started with Name: {welcome.Name}");
 
-        logger.LogInformation($"Logging critical message for: {welcome.Name}");
+        Wait(logger);
+
+
+        foreach (var i in Enumerable.Range(1, 10))
+        {
+            logger.LogCritical("Instance #{I}", i);
+            
+            logger.LogInformation(
+                "Orchestration '{ContextInstanceId}' started with Name: {WelcomeName}",
+                context.InstanceId, 
+                welcome.Name
+            );
+            
+            logger.LogInformation("Logging critical message for: {WelcomeName}", welcome.Name);
+        }
 
         return await Task.FromResult(welcome.Name);
+    }
+
+
+    private static void Wait(ILogger logger)
+    {
+        foreach (var i in Enumerable.Range(1, 30))
+        {
+            logger.LogCritical(30 - i + " seconds left...");
+            Thread.Sleep(1000);
+        }
     }
 }

@@ -1,7 +1,7 @@
 {
   "extensions": {
     "durableTask": {
-      "hubName": "MyDurableFunctionsHub" // Ensure this matches TaskHubName in local.settings.json
+      "hubName": "MyDurableFunctionsHub"
     }
   },
   "logging": {
@@ -12,13 +12,8 @@
       }
     },
     "logLevel": {
-      "default": "Information",
-      "Function": "Information",
-      "Host.Results": "Information",
-      "Host.Aggregator": "Information",
-      "Microsoft.Azure.WebJobs.Extensions.DurableTask": "Information", // Ensure Durable Task logs are visible
-      "DurableTask.Core": "Information", // More detailed Durable Task logs
-      "MyFirstAzureFunction": "Information" // Your application's namespace
+      "DurableTask.Core": "Information",
+      "MyFirstAzureFunction": "Information"
     }
   },
   "version": "2.0"
