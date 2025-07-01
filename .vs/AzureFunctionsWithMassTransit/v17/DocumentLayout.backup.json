@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\shawn\\source\\test2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{42413E91-F621-4523-8BC4-011365D8EBE3}|MyFirstAzureFunction\\MyFirstAzureFunction.csproj|c:\\users\\shawn\\source\\test2\\myfirstazurefunction\\myfirstorchestration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{42413E91-F621-4523-8BC4-011365D8EBE3}|MyFirstAzureFunction\\MyFirstAzureFunction.csproj|solutionrelative:myfirstazurefunction\\myfirstorchestration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{42413E91-F621-4523-8BC4-011365D8EBE3}|MyFirstAzureFunction\\MyFirstAzureFunction.csproj|c:\\users\\shawn\\source\\test2\\myfirstazurefunction\\host.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{42413E91-F621-4523-8BC4-011365D8EBE3}|MyFirstAzureFunction\\MyFirstAzureFunction.csproj|solutionrelative:myfirstazurefunction\\host.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -139,14 +139,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MyFirstOrchestration.cs",
-              "DocumentMoniker": "C:\\Users\\shawn\\source\\test2\\MyFirstAzureFunction\\MyFirstOrchestration.cs",
-              "RelativeDocumentMoniker": "MyFirstAzureFunction\\MyFirstOrchestration.cs",
-              "ToolTip": "C:\\Users\\shawn\\source\\test2\\MyFirstAzureFunction\\MyFirstOrchestration.cs",
-              "RelativeToolTip": "MyFirstAzureFunction\\MyFirstOrchestration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T16:29:42.463Z",
+              "Title": "host.json",
+              "DocumentMoniker": "C:\\Users\\shawn\\source\\test2\\MyFirstAzureFunction\\host.json",
+              "RelativeDocumentMoniker": "MyFirstAzureFunction\\host.json",
+              "ToolTip": "C:\\Users\\shawn\\source\\test2\\MyFirstAzureFunction\\host.json",
+              "RelativeToolTip": "MyFirstAzureFunction\\host.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-01T16:33:29.64Z",
               "EditorCaption": ""
             }
           ]
