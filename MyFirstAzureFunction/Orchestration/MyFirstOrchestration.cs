@@ -1,8 +1,9 @@
 ﻿using Microsoft.Azure.Functions.Worker;
 using Microsoft.DurableTask;
 using Microsoft.Extensions.Logging;
+using MyFirstAzureFunction.Models;
 
-namespace MyFirstAzureFunction;
+namespace MyFirstAzureFunction.Orchestration;
 
 internal class MyFirstOrchestration
 {

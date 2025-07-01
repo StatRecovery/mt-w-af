@@ -1,9 +1,4 @@
-﻿namespace MyFirstAzureFunction;
-
-public record Welcome
-{
-    public string Name { get; set; }
-}
+﻿namespace MyFirstAzureFunction.Models;
 
 public record Goodbye
 {

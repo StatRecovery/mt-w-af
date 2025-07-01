@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.Functions.Worker;
+using MyFirstAzureFunction.Models;
 
 namespace MyFirstAzureFunction;
 

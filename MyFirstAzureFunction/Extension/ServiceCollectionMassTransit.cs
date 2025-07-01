@@ -2,7 +2,7 @@
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MyFirstAzureFunction;
+namespace MyFirstAzureFunction.Extension;
 
 public static class ServiceCollectionMassTransit
 {

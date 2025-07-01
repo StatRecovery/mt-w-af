@@ -1,8 +1,10 @@
 ﻿using MassTransit;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask.ContextImplementations;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask.Options;
+using MyFirstAzureFunction.Models;
+using MyFirstAzureFunction.Orchestration;
 
-namespace MyFirstAzureFunction;
+namespace MyFirstAzureFunction.Consumers;
 
 public class WelcomeConsumer(IDurableClientFactory clientFactory) : IConsumer<Welcome>
 {

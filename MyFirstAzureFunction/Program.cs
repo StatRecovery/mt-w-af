@@ -1,7 +1,7 @@
 using Microsoft.Azure.Functions.Worker.Builder;
 using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 using Microsoft.Extensions.Hosting;
-using MyFirstAzureFunction;
+using MyFirstAzureFunction.Extension;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
